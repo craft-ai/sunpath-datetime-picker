@@ -24,7 +24,6 @@ const styles = {
     alignItems: 'center',
     justifyContent: 'flex-end',
     margin: 10,
-    fontFamily: 'Roboto, sans-serif',
     textTransform: 'uppercase'
   },
   buttons: {

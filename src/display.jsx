@@ -4,8 +4,7 @@ import React from 'react';
 import { extractWeights } from './utils';
 
 const styles = {
-  global : {
-    fontFamily: 'Roboto Mono, monospace'
+  global : {    
   },
   digits : {
     fontSize: 90

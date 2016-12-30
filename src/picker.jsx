@@ -67,6 +67,7 @@ let Picker = React.createClass({
         style={{
           height: 200,
           width: 400,
+          fontFamily: 'monospace',
           ...style,
           position: 'relative',
           minHeight: 200,
