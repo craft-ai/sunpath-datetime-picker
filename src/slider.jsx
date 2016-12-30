@@ -1,30 +1,11 @@
 import Radium from 'radium';
 import RcSlider from 'rc-slider';
 import React from 'react';
+import { addTime } from './utils';
 
 import 'rc-slider/assets/index.css';
 
-let timeAddition = (t1, t2) => {
-  let result = {
-    hour: t1.hour + t2.hour,
-    minute: t1.minute + t2.minute
-  };
-  while (result.minute > 60) {
-    result.hour += 1;
-    result.minute -= 60;
-  }
-  while (result.minute < 0) {
-    result.hour -= 1;
-    result.minute += 60;
-  }
-  while (result.hour > 24) {
-    result.hour -= 24;
-  }
-  while (result.hour < 0) {
-    result.hour += 24;
-  }
-  return result;
-};
+
 
 const sliderConf = {
   min: 0,
@@ -114,7 +95,7 @@ let Slider = React.createClass({
   },
   addToTime: function(addedTime) {
     const { time, onTimeChange } = this.props;
-    onTimeChange(timeAddition(time, addedTime));
+    onTimeChange(addTime(time, addedTime));
   },
   setRepeater: function(f, interval) {
     this.clearRepeater();
@@ -160,8 +141,11 @@ let Slider = React.createClass({
     this.onPlusMouseUp = this.clearRepeater;
     this.onMinusMouseUp = this.clearRepeater;
     this.onSliderChange = v => {
-      const { onTimeChange } = this.props;
-      onTimeChange(timeFromSliderValue(v));
+      const { time, onTimeChange } = this.props;
+      onTimeChange({
+        ...time,
+        ...timeFromSliderValue(v)
+      });
     };
   },
   componentWillUnmount: function() {

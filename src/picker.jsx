@@ -3,14 +3,17 @@ import Display from './display';
 import React from 'react';
 import Sky from './sky';
 import Slider from './slider';
+import WeekdayPicker from './weekdayPicker';
 
 let Picker = React.createClass({
   propTypes: {
     defaultTime: React.PropTypes.shape({
+      weekday: React.PropTypes.number,
       hour: React.PropTypes.number,
       minute: React.PropTypes.number
     }),
     time: React.PropTypes.shape({
+      weekday: React.PropTypes.number,
       hour: React.PropTypes.number,
       minute: React.PropTypes.number
     }),
@@ -20,6 +23,7 @@ let Picker = React.createClass({
   getDefaultProps: function() {
     return {
       defaultTime: {
+        weekday: 0,
         hour: 0,
         minute: 0
       },
@@ -87,15 +91,16 @@ let Picker = React.createClass({
           zIndex: 10,
           display: 'flex',
           flexDirection: 'column',
-          alignItems: 'center',
+          alignItems: 'stretch',
           justifyContent: 'flex-end'
         }}>
-          <Display time={ time } />
           <div style={{
-            alignSelf: 'stretch'
+            alignSelf: 'center'
           }}>
-            <Slider time={ time } onTimeChange={ this.onTimeChange } />
+            <Display time={ time } />
           </div>
+          <Slider time={ time } onTimeChange={ this.onTimeChange } />
+          <WeekdayPicker time={ time } onTimeChange={ this.onTimeChange } />
         </div>
       </div>
     );
