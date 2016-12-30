@@ -30,6 +30,7 @@
   },
   "dependencies": {
     "color": "1.0.3",
+    "lodash": "4.17.3",
     "radium": "0.18.1",
     "rc-slider": "5.4.0",
     "react": "15.4.1",

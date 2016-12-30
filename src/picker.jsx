@@ -1,3 +1,4 @@
+import _ from 'lodash';
 import Display from './display';
 import React from 'react';
 import Sky from './sky';
@@ -18,7 +19,7 @@ let Picker = React.createClass({
   },
   getDefaultProps: function() {
     return {
-      time: {
+      defaultTime: {
         hour: 0,
         minute: 0
       },
@@ -27,20 +28,25 @@ let Picker = React.createClass({
     };
   },
   getInitialState: function() {
-    const { defaultTime } = this.props;
-    if (defaultTime) {
+    const { time, defaultTime } = this.props;
+    if (_.isUndefined(time)) {
       return {
+        controlled: false,
         time: { ...defaultTime }
       };
     }
     else {
-      return {};
+      return {
+        controlled: true
+      };
     }
   },
   componentWillMount: function() {
     this.onTimeChange = (time) => {
-      this.props.onTimeChange(time);
-      if (this.props.defaultTime) {
+      const { onTimeChange } = this.props;
+      const { controlled } = this.state;
+      onTimeChange(time);
+      if (!controlled) {
         this.setState({
           time: { ...time }
         });
@@ -48,8 +54,9 @@ let Picker = React.createClass({
     };
   },
   render: function() {
-    const { style, defaultTime } = this.props;
-    const time = defaultTime ? this.state.time : this.props.time;
+    const { style } = this.props;
+    const { controlled } = this.state;
+    const time = controlled ? this.props.time : this.state.time;
     return (
       <div
         className='btp'

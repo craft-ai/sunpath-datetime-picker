@@ -157,7 +157,8 @@ let Slider = React.createClass({
       }), 10000 / speed);
       e.stopPropagation();
     };
-    this.onPlusMouseUp = this.onMinusMouseUp = this.clearRepeater;
+    this.onPlusMouseUp = this.clearRepeater;
+    this.onMinusMouseUp = this.clearRepeater;
     this.onSliderChange = v => {
       const { onTimeChange } = this.props;
       onTimeChange(timeFromSliderValue(v));
