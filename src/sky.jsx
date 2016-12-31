@@ -138,12 +138,13 @@ let computeParameters = (
     time,
     width, // width in pixels
     height, // height in pixels
+    zenith, // 0 the sun, at its peak, is at the bottom, 1 it is at the top
     horizon // 0 is horizon at the bottom, 1 is horizon at the top
   }) => {
   const { t, day } = extractWeights(time);
   return {
     sunX: t * width,
-    sunY: (1 - day) * height + (horizon - 0.5) * height,
+    sunY: (1 - day) * horizon * 2.0 * (height * zenith) + (1 - zenith) * height,
     skyTop: 0,
     skyLeft: 0,
     skyHeight: height * horizon,
@@ -162,6 +163,7 @@ let Sky = React.createClass({
       hour: React.PropTypes.number,
       minute: React.PropTypes.number
     }),
+    zenith: React.PropTypes.number,
     horizon: React.PropTypes.number
   },
   getDefaultProps: function() {
@@ -170,6 +172,7 @@ let Sky = React.createClass({
         hour: 0,
         minute: 0
       },
+      zenith: 0.8,
       horizon: 0.5
     };
   },

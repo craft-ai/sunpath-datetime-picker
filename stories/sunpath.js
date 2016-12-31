@@ -24,19 +24,47 @@ storiesOf('Sunpath', module)
         width: 600
       }}/>
   ))
-  .add('at 3:01 on Thursday (uncontrolled)', () => (
+  .add('at 6:30 on Tuesday (controlled)', () => (
     <Sunpath
-      defaultTime={{
-        weekday: 3,
-        hour: 3,
-        minute: 1
+      time={{
+        weekday: 1,
+        hour: 6,
+        minute: 30
       }}
       onTimeChange={onTimeChangeAction}
       style={{
         fontFamily: 'Roboto Mono, monospace',
         height: 400,
-        width: '80%'
-      }} />
+        width: 600
+      }}/>
+  ))
+  .add('at 11:58 on Friday (controlled)', () => (
+    <Sunpath
+      time={{
+        weekday: 4,
+        hour: 11,
+        minute: 58
+      }}
+      onTimeChange={onTimeChangeAction}
+      style={{
+        fontFamily: 'Roboto Mono, monospace',
+        height: 400,
+        width: 600
+      }}/>
+  ))
+  .add('at 17:30 on Monday (controlled)', () => (
+    <Sunpath
+      time={{
+        weekday: 0,
+        hour: 17,
+        minute: 30
+      }}
+      onTimeChange={onTimeChangeAction}
+      style={{
+        fontFamily: 'Roboto Mono, monospace',
+        height: 400,
+        width: 600
+      }}/>
   ))
   .add('dynamic (controlled)', () => (
     <Sunpath
@@ -66,4 +94,18 @@ storiesOf('Sunpath', module)
         height: 600,
         width: '100%'
       }} />
-  ));
+  ))
+  .add('Uncontrolled', () => (
+    <Sunpath
+      defaultTime={{
+        weekday: 3,
+        hour: 3,
+        minute: 1
+      }}
+      onTimeChange={onTimeChangeAction}
+      style={{
+        fontFamily: 'Roboto Mono, monospace',
+        height: 400,
+        width: '90%'
+      }} />
+  ))
