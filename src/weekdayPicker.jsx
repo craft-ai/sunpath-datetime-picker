@@ -22,22 +22,49 @@ const WEEKDAY_LABELS = [
   'SUN'
 ];
 
+const styles = {
+  row: {
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'stretch',
+    justifyContent: 'space-between'
+  },
+  item: {
+    flexGrow: 1,
+    padding: 4,
+    color: '#999',
+    textAlign: 'center',
+    fontSize: 20,
+    cursor: 'pointer',
+    ':hover': {
+      color: '#bbb',
+      backgroundColor: 'rgba(134, 195, 223, 0.7)'
+    }
+  },
+  selectedItem: {
+    backgroundColor: 'rgb(134, 195, 223)',
+    color: '#eee',
+    ':hover': {
+      color: '#fff',
+      backgroundColor: 'rgb(134, 195, 223)'
+    }
+  }
+};
+
 let WeekdayPicker = ({ time, onTimeChange }) => {
   const { weekday } = time;
+  const onWeekdayClick = weekday => () => onTimeChange({
+    ...time,
+    weekday
+  });
   return (
-    <div style={{
-      display: 'flex',
-      flexDirection: 'row',
-      alignItems: 'stretch',
-      justifyContent: 'space-between'
-    }} >
+    <div style={ styles.row } >
     {
       _.map(WEEKDAY, wd => (
         <div
-          style={{
-            fontWeight: weekday === wd ? 'bold' : 'normal'
-          }}
-          key={ wd } >  
+          style={ [styles.item, wd === weekday && styles.selectedItem] }
+          key={ wd }
+          onClick={ onWeekdayClick(wd) }>
           { WEEKDAY_LABELS[wd] }
         </div>
       ))

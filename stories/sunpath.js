@@ -34,7 +34,7 @@ storiesOf('Sunpath', module)
       onTimeChange={onTimeChangeAction}
       style={{
         fontFamily: 'Roboto Mono, monospace',
-        height: 300,
+        height: 400,
         width: '80%'
       }} />
   ))

@@ -40,18 +40,21 @@ const styles = {
     fontSize: 16,
     fontWeight: 'bold',
     backgroundColor: 'rgb(134, 195, 223)',
-    color: 'rgb(233, 233, 233)',
+    color: '#eee',
     ':hover': {
-      backgroundColor: 'rgba(134, 195, 223, 0.5)'
+      color: '#fff',
+      backgroundColor: 'rgba(134, 195, 223, 0.7)'
     },
     ':focus': {
       border: 'none',
       outline: 'none'
     },
     ':active': {
+      color: '#fff',
       border: 'none',
       outline: 'none'
-    }
+    },
+    cursor: 'pointer'
   },
   slider: {
     flexGrow: 1,
