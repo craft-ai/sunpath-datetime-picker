@@ -56,10 +56,10 @@ let Sun = Radium(({ x, y, left, top, width, height, day }) => (
       backgroundImage: `-webkit-radial-gradient(
         ${x}px ${y}px,
         circle,
-        rgba(254,255,255,0.8) 5%,
-        rgba(236,255,0,1) 10%,
-        rgba(253,50,41,1) 25%,
-        rgba(243,0,0,1) 40%,
+        rgba(254,255,255,0.8) 3%,
+        rgba(236,255,0,0.9) 5%,
+        rgba(253,50,41,1) 12%,
+        rgba(243,0,0,1) 30%,
         rgba(93,0,0,1) 100%)`
     }} />
   </div>
