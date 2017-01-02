@@ -1,0 +1,8 @@
+language: node_js
+node_js:
+- stable
+script:
+- npm run test
+- npm run gh-pages
+env:
+- ENCRYPTION_LABEL="1f8ccf708158"

@@ -5,8 +5,6 @@ import { addTime } from './utils';
 
 import 'rc-slider/assets/index.css';
 
-
-
 const sliderConf = {
   min: 0,
   max: 2399,

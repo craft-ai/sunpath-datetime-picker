@@ -108,4 +108,4 @@ storiesOf('Sunpath', module)
         height: 400,
         width: '90%'
       }} />
-  ))
+  ));

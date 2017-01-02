@@ -53,5 +53,11 @@ jspm_packages
 
 # End of https://www.gitignore.io/api/node
 
+# Github deploy keys
+deploy_key
+deploy_key.pub
+
 # Output
 lib
+gh-pages
+gh-pages-deploy
