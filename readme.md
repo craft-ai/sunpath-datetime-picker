@@ -4,6 +4,8 @@
 
 :construction:
 
+## [Live Demo](http://www.craft.ai/sunpath-datetime-picker) ##
+
 ## Developers ##
 
 Run `npm run storybook` to launch the testing / showcasing webapp.
